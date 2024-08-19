@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html>
+<head>
+  
+  <html lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CBTIS N°167</title>
+    <link rel="stylesheet" href="estilo.css">
+    <link rel="icon" href="354227254_756662546159753_7654829724531716021_n.jpg">
+
+  <style>
+   /* Estilos generales */
+body {
+  background-image: url(pexels-gdtography-277628-911738.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: #333;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Encabezado */
+.header1 {
+  background-color: #8C1936;
+  padding: 20px;
+  text-align: center;
+  border-radius: 20px;
+  border: 5px solid #CF945A;
+  font-weight: bold;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+h1 {
+  margin: 0;
+  color: #CF945A;
+  font-size: 3rem; /* Ajustado para ser más responsivo */
+  font-weight: bold;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Carreras Técnicas */
+.carreras-tecnicas {
+  margin: 20px;
+  padding: 20px;
+  background-color: #F9F9F9;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.carreras-tecnicas h3 {
+  color: #8C1936;
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+
+.carreras-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  text-align: center;
+}
+
+.carrera {
+  max-width: 150px;
+  margin: 10px;
+  text-align: center;
+}
+
+.carrera img {
+  width: 100%;
+  max-width: 250px;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.carrera h4 {
+  color: #333;
+  font-size: 1rem;
+  margin: 10px 0 5px;
+}
+
+.carrera p {
+  color: #555;
+  font-size: 0.875rem;
+  line-height: 1.4;
+}
+
+/* Texto Informativo */
+.texto-informativo {
+  margin: 40px;
+  padding: 20px;
+  background-color: #F5F5F5;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.texto-informativo h2 {
+  color: #8C1936;
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.texto-informativo p {
+  color: #333;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* Video de Bienvenida */
+.video-bienvenida {
+  margin: 40px;
+  padding: 20px;
+  text-align: center;
+}
+
+.video-bienvenida video {
+  width: 100%;
+  max-width: 800px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Carrusel */
+.carousel {
+  width: 100%;
+  max-width: 1325px;
+  height: 450px;
+  overflow: hidden;
+  position: relative;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.carousel-images {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+.carousel-images img {
+  width: 100%;
+  height: auto;
+  flex-shrink: 0;
+  transition: opacity 1s ease-in-out;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+}
+
+.carousel-images img.active {
+  opacity: 1;
+  position: relative;
+}
+
+/* Navegación */
+.navigation {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.navigation a {
+  margin: 0 10px;
+  background-color: #CF945A;
+  color: black;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  padding: 10px;
+  border: 2px solid white;
+  border-radius: 20px;
+}
+
+.navigation a:hover {
+  background-color: #CF945A;
+  color: #FFFFFF;
+}
+
+/* Formulario y Mensaje de Compra */
+.formulario-compra,
+.mensaje-compra {
+  display: none;
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 15px;
+  background-color: gold;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.formulario-compra.emergente {
+  display: block;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+}
+
+/* Footer */
+footer {
+  background-color: #8C1936;
+  padding: 20px;
+  text-align: center;
+  color: black;
+  font-weight: bold;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: 1rem;
+  border-radius: 20px;
+}
+
+footer p {
+  margin: 0;
+}
+
+footer ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+footer li {
+  margin-bottom: 10px;
+}
+
+/* Sidebar */
+.sidebar {
+  background-color: #8c1936;
+  color: #333;
+  width: 280px;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: -280px;
+  z-index: 999;
+  transition: left 0.3s ease;
+  border-radius: 15px;
+}
+
+.sidebar.active {
+  left: 0;
+  border: 2px solid white;
+}
+
+.toggle-btn {
+  background-color: #333;
+  color: #fff;
+  border: none;
+  font-size: 20px;
+  padding: 10px;
+  cursor: pointer;
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 999;
+}
+
+.toggle-btn:hover {
+  background-color: #555;
+}
+
+#menu {
+  list-style-type: none;
+  padding: 0;
+  margin-top: 60px;
+}
+
+#menu li {
+  padding: 10px;
+  margin: 10px;
+  text-align: center;
+}
+
+#menu li a {
+  color: black;
+  text-decoration: none;
+  border: 2px solid rgb(224, 167, 11);
+  font-weight: bold;
+}
+
+/* Contenido */
+.content {
+  margin-left: 0;
+  padding: 20px;
+  transition: margin-left 0.3s ease;
+  font-weight: bold;
+}
+
+.content.active {
+  margin-left: 280px;
+  font-weight: bold;
+}
+
+/* Sección de Contacto */
+.contact-section {
+  background-color: #8c1936;
+  color: white;
+  padding: 40px;
+  text-align: center;
+}
+
+.contact-section h2 {
+  margin: 0 0 20px;
+  font-size: 2rem;
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.contact-info div {
+  background-color: white;
+  color: #8c1936;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 500px;
+  text-align: left;
+}
+
+.contact-info h3 {
+  margin-top: 0;
+  color: #CF945A;
+}
+
+.contact-info p {
+  margin: 5px 0;
+}
+
+.contact-info a {
+  color: #8c1936;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.contact-info a:hover {
+  text-decoration: underline;
+}
+
+/* Mapa */
+.map-container {
+  margin: 20px 0;
+  max-width: 100%;
+  overflow: hidden;
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+  height: 0;
+}
+
+.map-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Galería */
+.gallery {
+  margin: 20px 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.gallery img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 10px;
+}
+
+/* Medios y Texto */
+#COLORBUSQUEDA {
+  color: red;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+#SEGUNDO2 {
+  margin: 0;
+  padding: 0;
+  margin: 10px;
+}
+
+#c1, #nombre, #correo, #direccion {
+  border-radius: 5px;
+  margin: 5px;
+}
+
+/* Botón de compra */
+#comprap {
+  text-align: center;
+  font-weight: bold;
+}
+
+/* Animaciones */
+.mensaje-bienvenida {
+  animation: fade 2.5s ease-in-out;
+  text-align: center;
+  color: #8c1936;
+  font-size: 1.5rem;
+}
+
+@keyframes fade {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+  .carousel {
+    height: 300px;
+  }
+
+  .contact-section h2 {
+    font-size: 1.5rem;
+  }
+
+  .texto-informativo h2 {
+    font-size: 1.5rem;
+  }
+
+  .texto-informativo p {
+    font-size: 0.875rem;
+  }
+
+  .header1 h1 {
+    font-size: 2rem;
+  }
+
+  .carrera img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .carrera h4 {
+    font-size: 0.875rem;
+  }
+
+  .carrera p {
+    font-size: 0.75rem;
+  }
+
+  .sidebar {
+    width: 100%;
+    height: auto;
+    left: -100%;
+    border-radius: 0;
+  }
+
+  .sidebar.active {
+    left: 0;
+  }
+
+  .toggle-btn {
+    left: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .carousel {
+    height: 200px;
+  }
+
+  .contact-section h2 {
+    font-size: 1.2rem;
+  }
+
+  .texto-informativo h2 {
+    font-size: 1.2rem;
+  }
+
+  .texto-informativo p {
+    font-size: 0.75rem;
+  }
+
+  .header1 h1 {
+    font-size: 1.5rem;
+  }
+
+  .carrera img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .carrera h4 {
+    font-size: 0.75rem;
+  }
+
+  .carrera p {
+    font-size: 0.625rem;
+  }
+
+  .sidebar {
+    width: 100%;
+    height: auto;
+    left: -100%;
+    border-radius: 0;
+  }
+
+  .sidebar.active {
+    left: 0;
+  }
+
+  .toggle-btn {
+    left: 10px;
+  }
+}
+
+  </style>
+  <script>
+    window.addEventListener('DOMContentLoaded', function() {
+      const mensajeBienvenida = document.querySelector('.mensaje-bienvenida');
+      const productos = document.querySelectorAll('.producto');
+      const formularioCompra = document.querySelector('.formulario-compra');
+      const mensajeCompra = document.querySelector('.mensaje-compra');
+      const botonInicioSesion = document.querySelector('#btn-inicio-sesion');
+      const botonRegistro = document.querySelector('#btn-registro');
+      const formularioInicioSesion = document.querySelector('.formulario-inicio-sesion');
+      const formularioRegistro = document.querySelector('.formulario-registro');
+
+      productos.forEach(function(producto) {
+        producto.addEventListener('click', function() {
+          formularioCompra.style.display = 'block';
+        });
+      });
+
+      formularioCompra.addEventListener('submit', function(event) {
+        event.preventDefault();
+        formularioCompra.style.display = 'none';
+        mensajeCompra.style.display = 'block';
+      });
+
+      botonInicioSesion.addEventListener('click', function() {
+        formularioInicioSesion.style.display = 'block';
+      });
+
+      botonRegistro.addEventListener('click', function() {
+        formularioRegistro.style.display = 'block';
+      });
+
+      mensajeBienvenida.classList.add('mensaje-bienvenida');
+    });
+    
+    function toggleMenu() {
+      var sidebar = document.getElementById("sidebar");
+      var content = document.getElementById("content");
+      
+      sidebar.classList.toggle("active");
+      content.classList.toggle("active");
+    }
+    
+    document.addEventListener("click", function(event) {
+      var sidebar = document.getElementById("sidebar");
+      var toggleBtn = document.querySelector(".toggle-btn");
+      
+      if (!sidebar.contains(event.target) && !toggleBtn.contains(event.target) && sidebar.classList.contains("active")) {
+        toggleMenu();
+      }
+    });
+    window.addEventListener('DOMContentLoaded', function() {
+      const productos = document.querySelectorAll('.producto');
+      const formularioCompra = document.querySelector('.formulario-compra');
+
+      productos.forEach(function(producto) {
+        producto.addEventListener('click', function() {
+          formularioCompra.classList.add('emergente');
+        });
+      });
+
+      formularioCompra.addEventListener('click', function(event) {
+        if (event.target === formularioCompra) {
+          formularioCompra.classList.remove('emergente');
+        }
+      });
+    });
+   
+    window.addEventListener('load', function() {
+        const images = document.querySelectorAll('.carousel-images img');
+        let currentIndex = 0;
+
+        function showNextImage() {
+            images[currentIndex].classList.remove('active');
+            currentIndex = (currentIndex + 1) % images.length;
+            images[currentIndex].classList.add('active');
+        }
+
+        setInterval(showNextImage, 2000); // Cambia la imagen cada 2 segundos
+    });
+
+
+  </script>
+</head>
+<body>
+  <header id="header1">
+    <h1>CBTIS N°167</h1>
+    <img style="max-width: 15%; border-radius: 15px;" src="354227254_756662546159753_7654829724531716021_n.jpg" alt="">
+  </header>
+  <header class="headernav">
+    <div class="navigation">
+      <a href="index.html" target="_blank" class="regisnew">INICIO</a>
+      <a href="contacto.html" target="_blank" class="regisnew">CONTACTO</a>
+      <a href="carreras.html" target="_blank" class="regisnew">OFERTA EDUCATIVA</a>
+
+    </div>
+  </header>
+  <!-- Coloca esto en el lugar donde quieres que aparezca el carrusel -->
+<div class="carousel">
+  <div class="carousel-images">
+      <img src="Imagen de WhatsApp 2024-08-17 a las 12.03.31_79396c7f.jpg" alt="Imagen 1" class="active">
+      <img src="Imagen de WhatsApp 2024-08-17 a las 12.03.31_b7dfeb9f.jpg" alt="Imagen 2">
+      <img src="Imagen de WhatsApp 2024-08-17 a las 12.03.32_cae4ec88.jpg" alt="Imagen 3">
+      <img src="uno.jpg" alt="Imagen 3">
+      <img src="dos.jpg" alt="Imagen 3">
+      <img src="tres.jpg" alt="Imagen 3">
+      <img src="cuatro.jpg" alt="Imagen 3">
+      <img src="cinco.jpg" alt="Imagen 3">
+  </div>
+</div>
+
+  <main>
+    <h2 class="mensaje-bienvenida">¡Bienvenido(a) al sitio CBTIS N°167</h2>
+    <div class="contact-section">
+        <h2>Contacto</h2>
+        <div class="contact-info">
+            <div>
+                <h3>Dirección</h3>
+                <p>Avenida chiapas No 280, Colonia Ganadera, Emiliano Zapata, Mexico, 86990</p>
+            </div>
+            <div>
+                <h3>Teléfono</h3>
+                <p><a href="tel:+1234567890">+52 9343430690</a></p>
+            </div>
+            <div>
+                <h3>Email</h3>
+                <p><a href="mailto:contacto@escuela.com">cbtis167.dir@dgeti.sems.gob.mx</a></p>
+            </div>
+            <div>
+                <h3>Redes Sociales</h3>
+                <p>
+                    <a href="https://www.facebook.com/p/CBTIS-167-E-Zapata-100054480429108/?locale=es_LA" target="_blank">Facebook</a> |
+                    <a href="https://twitter.com/cbtis167" target="_blank">Twitter(x)</a> |
+                </p>
+            </div>
+        </div>
+
+        <div class="map-container">
+            <!-- Reemplaza con el iframe del mapa de Google -->
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d216826.68177995103!2d-91.76740027810105!3d17.611844213776784!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85f3cbeda6809001%3A0x40db944ca7044661!2sCBTIS%20167!5e0!3m2!1ses-419!2smx!4v1724019126204!5m2!1ses-419!2smx" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+
+        <div class="gallery">
+            <!-- Agrega imágenes de la escuela aquí -->
+            <img src="354227254_756662546159753_7654829724531716021_n.jpg" alt="Imagen de la Escuela 2">
+            <br>
+        </br>
+        </div>
+        <br>
+        </br><br>
+      </br>
+      <br>
+        </br>
+    </div>
+    <div class="navigation">
+        <a href="index.html" target="_blank" class="regisnew">INICIO</a>
+        <a href="beneficios.html" target="_blank" class="regisnew">BENEFICIOS</a>
+        <a href="contacto.html" target="_blank" class="regisnew">CONTACTO</a>
+        <a href="carreras.html" target="_blank" class="regisnew">OFERTA EDUCATIVA</a>
+        <a href="quejas.html" target="_blank" class="regisnew">BUZON DE QUEJAS O SUGERENCIAS</a>
+        <a href="servicios.html" target="_blank" class="regisnew">SERVICIOS SOCIALES</a>
+        <a href="maestros.html" target="_blank" class="regisnew">NUESTROS MAESTROS</a>
+
+    </div>
+  </main>
+  
+  
+     

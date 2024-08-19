@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html>
+<head>
+  
+  <html lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CBTIS N°167</title>
+    <link rel="stylesheet" href="estilo.css">
+    <link rel="icon" href="354227254_756662546159753_7654829724531716021_n.jpg">
+
+  <style>
+    /* General Styles */
+body {
+  background-color: white;
+  color: #333;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-image: url(pexels-gdtography-277628-911738.jpg); 
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* Header Styles */
+.header1 {
+  background-color: #8C1936;
+  padding: 20px;
+  text-align: center;
+  border-radius: 20px;
+  border: 5px solid #CF945A;
+  font-weight: bold;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+h1 {
+  margin: 0;
+  color: #CF945A;
+  font-size: 60px;
+  font-weight: bold;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Carousel Styles */
+.carousel {
+  width: 100%;
+  max-width: 1325px;
+  height: auto;
+  aspect-ratio: 3 / 1;
+  overflow: hidden;
+  position: relative;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  margin: auto;
+}
+
+.carousel-images {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+.carousel-images img {
+  width: 100%;
+  height: auto;
+  flex-shrink: 0;
+  transition: opacity 1s ease-in-out;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+}
+
+.carousel-images img.active {
+  opacity: 1;
+  position: relative;
+}
+
+/* Navigation Styles */
+.navigation {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.navigation a {
+  margin: 0 10px;
+  background-color: #CF945A;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  text-align: center;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+  font-size: 16px;
+  padding: 10px;
+  border: 2px solid white;
+  border-radius: 20px;
+  margin: 10px;
+}
+
+a:hover {
+  background-color: #CF945A;
+  color: #FFFFFF;
+}
+
+/* Footer Styles */
+footer {
+  background-color: #8C1936;
+  padding: 20px;
+  text-align: center;
+  color: black;
+  font-weight: bold;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: 15px;
+  border-radius: 20px;
+}
+
+footer p {
+  margin: 0;
+}
+
+footer ul {
+  list-style: none;
+  padding: 0;
+}
+
+footer li {
+  margin-bottom: 10px;
+}
+
+/* Sidebar Styles */
+.sidebar {
+  background-color: #8c1936;
+  color: #333;
+  width: 280px;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: -280px;
+  z-index: 999;
+  transition: left 0.3s ease;
+  border-radius: 15px;
+}
+
+.sidebar.active {
+  left: 0;
+  border: 2px solid white;
+}
+
+.toggle-btn {
+  background-color: #333;
+  color: #fff;
+  border: none;
+  font-size: 20px;
+  padding: 10px;
+  cursor: pointer;
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 999;
+}
+
+.toggle-btn:hover {
+  background-color: #555;
+}
+
+#menu {
+  list-style-type: none;
+  padding: 0;
+  margin-top: 60px;
+}
+
+#menu li {
+  padding: 10px;
+  margin: 10px;
+  text-align: center;
+}
+
+#menu li a {
+  color: black;
+  text-decoration: none;
+  border: 2px solid rgb(224, 167, 11);
+  font-weight: bold;
+}
+
+/* Content Styles */
+.content {
+  margin-left: 0;
+  padding: 20px;
+  transition: margin-left 0.3s ease;
+  font-weight: bold;
+}
+
+.content.active {
+  margin-left: 280px;
+  font-weight: bold;
+}
+
+/* Carreras Técnicas Styles */
+.carreras-tecnicas {
+  margin: 20px;
+  padding: 20px;
+  background-color: #F9F9F9;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.carreras-tecnicas h3 {
+  color: #8C1936;
+  font-size: 24px;
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+
+.carreras-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+.carrera {
+  text-align: center;
+  max-width: 150px;
+  margin: 10px;
+}
+
+.carrera img {
+  width: 100%;
+  max-width: 250px;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.carrera h4 {
+  color: #333;
+  font-size: 18px;
+  margin: 10px 0 5px;
+}
+
+.carrera p {
+  color: #555;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+/* Informative Text Styles */
+.texto-informativo {
+  margin: 40px;
+  padding: 20px;
+  background-color: #F5F5F5;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.texto-informativo h2 {
+  color: #8C1936;
+  font-size: 40px;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.texto-informativo p {
+  color: #333;
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+/* Video Styles */
+.video-bienvenida {
+  margin: 40px;
+  padding: 20px;
+  text-align: center;
+}
+
+.video-bienvenida video {
+  width: 100%;
+  max-width: 800px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Catalogo and Product Styles */
+.catalogo {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.producto {
+  margin: 20px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  text-align: center;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  max-width: 250px;
+  background-color: white;
+}
+
+.producto:hover {
+  transform: scale(1.05);
+}
+
+.formulario-compra, .mensaje-compra {
+  display: none;
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 15px;
+  background-color: gold;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.formulario-compra.emergente {
+  display: block;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+}
+
+.mensaje-bienvenida {
+  animation: fade 2.5s ease-in-out;
+  text-align: center;
+  color: #8c1936;
+  font-size: 25px;
+}
+
+@keyframes fade {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+/* Services Section Styles */
+.services-section {
+  background-color: #8c1936;
+  color: white;
+  padding: 40px;
+  text-align: center;
+}
+
+.services-section h2 {
+  margin: 0 0 20px;
+  font-size: 2em;
+}
+
+.services-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.service-item {
+  background-color: white;
+  color: #8c1936;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 300px;
+  text-align: left;
+  margin: 10px;
+}
+
+.service-item h3 {
+  color: #CF945A;
+  margin-top: 0;
+}
+
+.service-item p {
+  margin: 5px 0;
+}
+
+.service-item img {
+  max-width: 50px;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .carousel {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 3 / 1;
+  }
+
+  .carrera img {
+    width: 100%;
+  }
+
+  .carrera h4 {
+    font-size: 16px;
+  }
+
+  .carrera p {
+    font-size: 12px;
+  }
+
+  .texto-informativo h2 {
+    font-size: 32px;
+  }
+
+  .texto-informativo p {
+    font-size: 16px;
+  }
+
+  .producto {
+    max-width: 100%;
+  }
+
+  .header1, footer {
+    font-size: 14px;
+  }
+
+  h1 {
+    font-size: 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  .header1, footer {
+    font-size: 12px;
+  }
+
+  h1 {
+    font-size: 30px;
+  }
+
+  .carousel {
+    height: auto;
+  }
+
+  .carrera img {
+    width: 100%;
+    max-width: 200px;
+  }
+
+  .carrera h4 {
+    font-size: 14px;
+  }
+
+  .carrera p {
+    font-size: 10px;
+  }
+
+  .texto-informativo h2 {
+    font-size: 28px;
+  }
+
+  .texto-informativo p {
+    font-size: 14px;
+  }
+
+  .producto {
+    max-width: 100%;
+    font-size: 12px;
+  }
+
+  .services-section h2 {
+    font-size: 1.5em;
+  }
+
+  .service-item {
+    max-width: 100%;
+  }
+}
+
+  </style>
+  <script>
+    window.addEventListener('DOMContentLoaded', function() {
+      const mensajeBienvenida = document.querySelector('.mensaje-bienvenida');
+      const productos = document.querySelectorAll('.producto');
+      const formularioCompra = document.querySelector('.formulario-compra');
+      const mensajeCompra = document.querySelector('.mensaje-compra');
+      const botonInicioSesion = document.querySelector('#btn-inicio-sesion');
+      const botonRegistro = document.querySelector('#btn-registro');
+      const formularioInicioSesion = document.querySelector('.formulario-inicio-sesion');
+      const formularioRegistro = document.querySelector('.formulario-registro');
+
+      productos.forEach(function(producto) {
+        producto.addEventListener('click', function() {
+          formularioCompra.style.display = 'block';
+        });
+      });
+
+      formularioCompra.addEventListener('submit', function(event) {
+        event.preventDefault();
+        formularioCompra.style.display = 'none';
+        mensajeCompra.style.display = 'block';
+      });
+
+      botonInicioSesion.addEventListener('click', function() {
+        formularioInicioSesion.style.display = 'block';
+      });
+
+      botonRegistro.addEventListener('click', function() {
+        formularioRegistro.style.display = 'block';
+      });
+
+      mensajeBienvenida.classList.add('mensaje-bienvenida');
+    });
+    
+    function toggleMenu() {
+      var sidebar = document.getElementById("sidebar");
+      var content = document.getElementById("content");
+      
+      sidebar.classList.toggle("active");
+      content.classList.toggle("active");
+    }
+    
+    document.addEventListener("click", function(event) {
+      var sidebar = document.getElementById("sidebar");
+      var toggleBtn = document.querySelector(".toggle-btn");
+      
+      if (!sidebar.contains(event.target) && !toggleBtn.contains(event.target) && sidebar.classList.contains("active")) {
+        toggleMenu();
+      }
+    });
+    window.addEventListener('DOMContentLoaded', function() {
+      const productos = document.querySelectorAll('.producto');
+      const formularioCompra = document.querySelector('.formulario-compra');
+
+      productos.forEach(function(producto) {
+        producto.addEventListener('click', function() {
+          formularioCompra.classList.add('emergente');
+        });
+      });
+
+      formularioCompra.addEventListener('click', function(event) {
+        if (event.target === formularioCompra) {
+          formularioCompra.classList.remove('emergente');
+        }
+      });
+    });
+   
+    window.addEventListener('load', function() {
+        const images = document.querySelectorAll('.carousel-images img');
+        let currentIndex = 0;
+
+        function showNextImage() {
+            images[currentIndex].classList.remove('active');
+            currentIndex = (currentIndex + 1) % images.length;
+            images[currentIndex].classList.add('active');
+        }
+
+        setInterval(showNextImage, 2000); // Cambia la imagen cada 2 segundos
+    });
+
+
+  </script>
+</head>
+<body>
+  <header id="header1">
+    <h1>CBTIS N°167</h1>
+    <img style="max-width: 15%; border-radius: 15px;" src="354227254_756662546159753_7654829724531716021_n.jpg" alt="">
+  </header>
+  <header class="headernav">
+    <div class="navigation">
+      <a href="index.html" target="_blank" class="regisnew">INICIO</a>
+      <a href="contacto.html" target="_blank" class="regisnew">CONTACTO</a>
+      <a href="carreras.html" target="_blank" class="regisnew">OFERTA EDUCATIVA</a>
+      
+    </div>
+  </header>
+  <!-- Coloca esto en el lugar donde quieres que aparezca el carrusel -->
+<div class="carousel">
+  <div class="carousel-images">
+      <img src="Imagen de WhatsApp 2024-08-17 a las 12.03.31_79396c7f.jpg" alt="Imagen 1" class="active">
+      <img src="Imagen de WhatsApp 2024-08-17 a las 12.03.31_b7dfeb9f.jpg" alt="Imagen 2">
+      <img src="Imagen de WhatsApp 2024-08-17 a las 12.03.32_cae4ec88.jpg" alt="Imagen 3">
+      <img src="uno.jpg" alt="Imagen 3">
+      <img src="dos.jpg" alt="Imagen 3">
+      <img src="tres.jpg" alt="Imagen 3">
+      <img src="cuatro.jpg" alt="Imagen 3">
+      <img src="cinco.jpg" alt="Imagen 3">
+  </div>
+</div>
+
+  <main>
+    <h2 class="mensaje-bienvenida">¡Bienvenido(a) al sitio CBTIS N°167</h2>
+    <div class="services-section">
+      <h2>Servicios Sociales</h2>
+      <div class="services-container">
+          <div class="service-item">
+              <img src="asesoria.jpg" alt="Servicio 1">
+              <h3>Asesoría Psicológica</h3>
+              <p>Brindamos apoyo emocional y orientación psicológica para estudiantes que lo necesiten, con la finalidad de promover su bienestar integral.</p>
+          </div>
+          <div class="service-item">
+              <img src="vocacion.jpeg" alt="Servicio 2">
+              <h3>Orientación Vocacional</h3>
+              <p>Ofrecemos orientación y asesoramiento para ayudar a los estudiantes a identificar sus intereses y fortalezas, y tomar decisiones informadas sobre su futuro académico y profesional.</p>
+          </div>
+          <div class="service-item">
+              <img src="tutorias.jpg" alt="Servicio 3">
+              <h3>Programas de Tutoría</h3>
+              <p>Disponemos de programas de tutoría académica para apoyar a los estudiantes en áreas específicas y mejorar su rendimiento escolar.</p>
+          </div>
+          <div class="service-item">
+              <img src="actividades-extracurriculares.png" alt="Servicio 4">
+              <h3>Actividades Extracurriculares</h3>
+              <p>Fomentamos la participación en clubes y actividades extracurriculares que permiten a los estudiantes desarrollar habilidades sociales y personales, además de explorar sus intereses.</p>
+          </div>
+          <div class="service-item">
+              <img src="servicios-salud-ookkshutterstock_1561815367.jpg" alt="Servicio 5">
+              <h3>Servicios de Salud</h3>
+              <p>Proporcionamos acceso a servicios médicos básicos y orientación en temas de salud para asegurar el bienestar físico de nuestros estudiantes.</p>
+          </div>
+          <div class="service-item">
+              <img src="beca-global.png" alt="Servicio 6">
+              <h3>Apoyo en Becas y Ayudas Económicas</h3>
+              <p>Asistimos a los estudiantes en la búsqueda de becas y ayudas económicas para facilitar el acceso a una educación de calidad sin preocupaciones financieras.</p>
+          </div>
+      </div>
+  </div>
+
+    
+  </main>
+  
+  
+     <body id="SEGUNDO2">
+  <button class="toggle-btn" onclick="toggleMenu()">☰</button>
+  
+  <div class="sidebar" id="sidebar">
+    <ul id="menu" style="color: white;">
+      <p id="MENUDE">MENU</p>
+      <li><a href="index.html" target="_blank" class="regisnew">INICIO</a></li>
+      <li><a href="beneficios.html" target="_blank" class="regisnew">BENEFICIOS</a></li>
+      <li><a href="contacto.html" target="_blank" class="regisnew">CONTACTO</a></li>
+      <li><a href="carreras.html" target="_blank" class="regisnew">OFERTA EDUCATIVA</a></li>
+      <li><a href="quejas.html" target="_blank" class="regisnew">BUZON DE QUEJAS</a></li>
+      <li><a href="servicios.html" target="_blank" class="regisnew">SERVICIOS SOCIALES</a></li>
+      <li><a href="maestros.html" target="_blank" class="regisnew">NUESTROS MAESTROS</a></li>
+
+    </ul>
+  </div>
+  </body>

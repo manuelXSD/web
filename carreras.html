@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html>
+<head>
+  
+  <html lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CBTIS N°167</title>
+    <link rel="stylesheet" href="estilo.css">
+    <link rel="icon" href="354227254_756662546159753_7654829724531716021_n.jpg">
+
+  <style>
+    /* Carreras Técnicas */
+.carreras-tecnicas {
+    margin: 20px;
+    padding: 20px;
+    background-color: #F9F9F9;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.carreras-tecnicas h3 {
+    color: #8C1936;
+    font-size: 1.5rem; /* Ajustado para mejor responsividad */
+    margin-bottom: 15px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.carreras-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    text-align: center;
+}
+
+.carrera {
+    text-align: center;
+    max-width: 300px; /* Ajustado para mejor visualización en pantallas más grandes */
+    margin: 10px;
+}
+
+.carrera img {
+    width: 100%; /* Ajustado para hacer la imagen responsiva */
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.carrera h4 {
+    color: #333;
+    font-size: 1rem; /* Ajustado para mejor responsividad */
+    margin: 10px 0 5px;
+    text-align: center;
+}
+
+.carrera p {
+    color: #555;
+    font-size: 0.875rem; /* Ajustado para mejor responsividad */
+    line-height: 1.4;
+    text-align: center;
+}
+
+/* Texto Informativo */
+.texto-informativo {
+    margin: 20px;
+    padding: 20px;
+    background-color: #F5F5F5;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    font-family: Arial, sans-serif;
+}
+
+.texto-informativo h2 {
+    color: #8C1936;
+    font-size: 2.5rem; /* Ajustado para mejor responsividad */
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.texto-informativo p {
+    color: #333;
+    font-size: 1rem; /* Ajustado para mejor responsividad */
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+/* Video Bienvenida */
+.video-bienvenida {
+    margin: 20px;
+    padding: 20px;
+    text-align: center;
+}
+
+.video-bienvenida video {
+    width: 100%;
+    max-width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Carrusel */
+.carousel {
+    width: 100%; /* Ajustado para mejor responsividad */
+    max-width: 1000px; /* Ajustado para mejor visualización en pantallas más grandes */
+    height: 450px;
+    overflow: hidden;
+    position: relative;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.carousel-images {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+.carousel-images img {
+    width: 100%;
+    height: auto;
+    flex-shrink: 0;
+    transition: opacity 1s ease-in-out;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+}
+
+.carousel-images img.active {
+    opacity: 1;
+    position: relative;
+}
+
+/* Navegación */
+.navigation {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.navigation a {
+    margin: 0 10px;
+    background-color: #CF945A;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-align: center;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+    font-size: 1rem; /* Ajustado para mejor responsividad */
+    padding: 10px;
+    border: 2px solid white;
+    border-radius: 20px;
+    margin: 10px;
+}
+
+a:hover {
+    background-color: #CF945A;
+    color: #FFFFFF;
+}
+
+/* Estilos Generales */
+body {
+    background-color: white;
+    color: #333;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-image: url(pexels-gdtography-277628-911738.jpg); 
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 0; /* Ajustado para evitar margen adicional */
+}
+
+/* Header */
+.header1 {
+    background-color: #8C1936;
+    padding: 20px;
+    text-align: center;
+    border-radius: 20px;
+    border: 5px solid #CF945A;
+    font-weight: bold;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+h1 {
+    margin: 0;
+    color: #CF945A;
+    font-size: 3rem; /* Ajustado para mejor responsividad */
+    font-weight: bold;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Catálogo */
+.catalogo {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.producto {
+    margin: 10px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    text-align: center;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    max-width: 100%; /* Ajustado para mejor responsividad */
+    background-color: white;
+}
+
+.producto:hover {
+    transform: scale(1.05);
+}
+
+/* Formularios */
+.formulario-compra {
+    display: none;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 15px;
+    background-color: gold;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.mensaje-compra {
+    display: none;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    background-color: gold;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.mensaje-bienvenida {
+    animation: fade 2.5s ease-in-out;
+    text-align: center;
+    color: #8c1936;
+    font-size: 1.5rem; /* Ajustado para mejor responsividad */
+}
+
+@keyframes fade {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+/* Footer */
+footer {
+    background-color: #8C1936;
+    padding: 20px;
+    text-align: center;
+    color: black;
+    font-weight: bold;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 1rem; /* Ajustado para mejor responsividad */
+    border-radius: 20px;
+}
+
+footer p {
+    margin: 0;
+}
+
+footer ul {
+    list-style: none;
+    padding: 0;
+}
+
+footer li {
+    margin-bottom: 10px;
+}
+
+/* Sidebar */
+.sidebar {
+    background-color: #8c1936;
+    color: #333;
+    width: 280px;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: -280px;
+    z-index: 999;
+    transition: left 0.3s ease;
+    border-radius: 15px;
+}
+
+.sidebar.active {
+    left: 0;
+    border: 2px solid white;
+}
+
+.toggle-btn {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    font-size: 20px;
+    padding: 10px;
+    cursor: pointer;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 999;
+}
+
+.toggle-btn:hover {
+    background-color: #555;
+}
+
+#menu {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 60px;
+}
+
+#menu li {
+    padding: 10px;
+    margin: 10px;
+    text-align: center;
+}
+
+#menu li a {
+    color: black;
+    text-decoration: none;
+    border: 2px solid rgb(224, 167, 11);
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Contenido */
+.content {
+    margin-left: 0;
+    padding: 20px;
+    transition: margin-left 0.3s ease;
+    font-weight: bold;
+}
+
+.content.active {
+    margin-left: 280px;
+    font-weight: bold;
+}
+
+/* Estilo para campos de formulario */
+#COLORBUSQUEDA {
+    color: red;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: bold;
+    font-size: 2rem; /* Ajustado para mejor responsividad */
+}
+
+#SEGUNDO2 {
+    margin: 0;
+    padding: 0;
+    margin: 10px;
+}
+
+/* Imágenes en el Footer */
+.footer-images {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+.footer-images a img {
+    width: 50px;
+    height: 50px;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+.footer-images a img:hover {
+    transform: scale(1.1);
+}
+
+/* Contenedor General */
+.container {
+    width: 90%; /* Ajustado para mejor responsividad */
+    max-width: 1200px; /* Ajustado para pantallas grandes */
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Sección de Carreras */
+.career-section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.career-card {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: 100%;
+    max-width: 300px; /* Ajustado para mejor visualización en pantallas más grandes */
+    text-align: center;
+}
+
+.career-card img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.career-card h3 {
+    margin: 10px 0;
+    font-size: 1.25rem; /* Ajustado para mejor responsividad */
+}
+
+.career-card p {
+    padding: 0 15px 20px;
+    color: #555;
+}
+
+  </style>
+  <script>
+    window.addEventListener('DOMContentLoaded', function() {
+      const mensajeBienvenida = document.querySelector('.mensaje-bienvenida');
+      const productos = document.querySelectorAll('.producto');
+      const formularioCompra = document.querySelector('.formulario-compra');
+      const mensajeCompra = document.querySelector('.mensaje-compra');
+      const botonInicioSesion = document.querySelector('#btn-inicio-sesion');
+      const botonRegistro = document.querySelector('#btn-registro');
+      const formularioInicioSesion = document.querySelector('.formulario-inicio-sesion');
+      const formularioRegistro = document.querySelector('.formulario-registro');
+
+      productos.forEach(function(producto) {
+        producto.addEventListener('click', function() {
+          formularioCompra.style.display = 'block';
+        });
+      });
+
+      formularioCompra.addEventListener('submit', function(event) {
+        event.preventDefault();
+        formularioCompra.style.display = 'none';
+        mensajeCompra.style.display = 'block';
+      });
+
+      botonInicioSesion.addEventListener('click', function() {
+        formularioInicioSesion.style.display = 'block';
+      });
+
+      botonRegistro.addEventListener('click', function() {
+        formularioRegistro.style.display = 'block';
+      });
+
+      mensajeBienvenida.classList.add('mensaje-bienvenida');
+    });
+    
+    function toggleMenu() {
+      var sidebar = document.getElementById("sidebar");
+      var content = document.getElementById("content");
+      
+      sidebar.classList.toggle("active");
+      content.classList.toggle("active");
+    }
+    
+    document.addEventListener("click", function(event) {
+      var sidebar = document.getElementById("sidebar");
+      var toggleBtn = document.querySelector(".toggle-btn");
+      
+      if (!sidebar.contains(event.target) && !toggleBtn.contains(event.target) && sidebar.classList.contains("active")) {
+        toggleMenu();
+      }
+    });
+    window.addEventListener('DOMContentLoaded', function() {
+      const productos = document.querySelectorAll('.producto');
+      const formularioCompra = document.querySelector('.formulario-compra');
+
+      productos.forEach(function(producto) {
+        producto.addEventListener('click', function() {
+          formularioCompra.classList.add('emergente');
+        });
+      });
+
+      formularioCompra.addEventListener('click', function(event) {
+        if (event.target === formularioCompra) {
+          formularioCompra.classList.remove('emergente');
+        }
+      });
+    });
+   
+    window.addEventListener('load', function() {
+        const images = document.querySelectorAll('.carousel-images img');
+        let currentIndex = 0;
+
+        function showNextImage() {
+            images[currentIndex].classList.remove('active');
+            currentIndex = (currentIndex + 1) % images.length;
+            images[currentIndex].classList.add('active');
+        }
+
+        setInterval(showNextImage, 2000); // Cambia la imagen cada 2 segundos
+    });
+
+
+  </script>
+</head>
+<body>
+  <header id="header1">
+    <h1>CBTIS N°167</h1>
+    <img style="max-width: 15%; border-radius: 15px;" src="354227254_756662546159753_7654829724531716021_n.jpg" alt="">
+  </header>
+  <header class="headernav">
+    <div class="navigation">
+      <a href="index.html" target="_blank" class="regisnew">INICIO</a>
+      <a href="servicios.html" target="_blank" class="regisnew">SERVICIOS SOCIALES</a>
+      <a href="maestros.html" target="_blank" class="regisnew">NUESTROS MAESTROS</a>
+
+    </div>
+  </header>
+  <!-- Coloca esto en el lugar donde quieres que aparezca el carrusel -->
+<div class="carousel">
+  <div class="carousel-images">
+      <img src="Imagen de WhatsApp 2024-08-17 a las 12.03.31_79396c7f.jpg" alt="Imagen 1" class="active">
+      <img src="Imagen de WhatsApp 2024-08-17 a las 12.03.31_b7dfeb9f.jpg" alt="Imagen 2">
+      <img src="Imagen de WhatsApp 2024-08-17 a las 12.03.32_cae4ec88.jpg" alt="Imagen 3">
+      <img src="uno.jpg" alt="Imagen 3">
+      <img src="dos.jpg" alt="Imagen 3">
+      <img src="tres.jpg" alt="Imagen 3">
+      <img src="cuatro.jpg" alt="Imagen 3">
+      <img src="cinco.jpg" alt="Imagen 3">
+  </div>
+</div>
+
+  <main>
+    <h2 class="mensaje-bienvenida">¡Bienvenido(a) al sitio CBTIS N°167</h2>
+    <div class="container">
+        <h1 style="text-align: center;">Carreras Técnicas</h1>
+        <div class="career-section">
+            <!-- Carrera 1 -->
+            <div class="career-card">
+                <img src="3170-scaled.jpg" alt="Nombre de la Carrera 1">
+                <h3>CONTADURIA</h3>
+                <p> La carrera de Técnico en Contabilidad ofrece las competencias profesionales que permiten al estudiante registrar operaciones contables de empresas comerciales y de servicios operando los procesos contables a través de un sistema electrónico, así como registrar operaciones contables de una entidad fabril, determinar contribuciones y asistir en actividades de auditoría.</p>
+            </div>
+    
+            <!-- Carrera 2 -->
+            <div class="career-card">
+                <img src="b910f4651295.jpg" alt="Nombre de la Carrera 2">
+                <h3>ADMINISTRACION DE RECURSOS HUMANOS</h3>
+                <p>La carrera de Técnico en Administración de Recursos Humanos se desarrolla como vertiente de la carrera de Administración y ofrece las competencias profesionales que permiten al estudiante elaborar y gestionar documentación administrativa referente a recursos humanos, integrar al personal a la organización, asistir en actividades de capacitación, desarrollo y evaluación del personal, así como determinar las competencias genéricas relacionadas principalmente con la participación en los procesos de comunicación en distintos contextos, la integración al personal.</p>
+            </div>
+    
+            <div class="career-card">
+                <img src="FotoJet (41) (1).jpg" alt="Nombre de la Carrera 2">
+                <h3>OFIMATICA</h3>
+                <p>La carrera de Técnico en ofimática ofrece las competencias profesionales que permiten al estudiante realizar actividades dirigidas a obtener y gestionar información de manera digital, mediante el uso eficaz y eficiente de los recursos informáticos disponibles con la finalidad de satisfacer las necesidades y requerimientos del cliente.</p>
+            </div>
+    
+            <div class="career-card">
+                <img src="FotoJet (41) (1).jpg" alt="Nombre de la Carrera 2">
+                <h3>SOPORTE TECNICO Y MANTENIMIENTO A EQUIPOS DE COMPUTO</h3>
+                <p>La carrera de Técnico en Soporte y Mantenimiento de Equipo de Cómputo se desarrolla como vertiente de la carrera de Informática y ofrece las competencias profesionales que permiten al estudiante realizar operaciones de soporte y mantenimiento a equipos de cómputo de manera presencial y a distancia, tomando como base las especificaciones del fabricante e instalar redes LAN de acuerdo a las necesidades de la organización.</p>
+            </div>
+    
+            <div class="career-card">
+              <img src="istockphoto-1193451471-612x612.jpg" alt="Nombre de la Carrera 1">
+              <h3>UBICACION</h3>
+              <p>Avenida chiapas No 280, Colonia Ganadera, Emiliano Zapata, Mexico, 86990</p>
+          </div>
+    
+          <div class="career-card">
+            <img src="354227254_756662546159753_7654829724531716021_n.jpg" alt="Nombre de la Carrera 1">
+            <h3>CBTIS N° 167</h3>
+            <p>El CBTIS N°167 es una institución educativa de excelencia, comprometida con la formación integral de sus estudiantes. Ofrecemos una amplia gama de programas académicos que preparan a nuestros alumnos para enfrentar los desafíos del mundo laboral con confianza y competencias sólidas.
+    
+              Estudiar en el CBTIS te permitirá desarrollar habilidades técnicas y prácticas que son altamente valoradas en el mercado laboral. Además, contamos con instalaciones modernas, un cuerpo docente calificado, y una comunidad estudiantil dinámica y acogedora.
+              
+              Únete a nosotros y da el primer paso hacia un futuro brillante. ¡Te esperamos en el CBTIS N°167!</p>
+        </div>
+    
+            <!-- Puedes agregar más carreras siguiendo el mismo formato -->
+        </div>
+    </div>
+    <div class="navigation">
+        <a href="index.html" target="_blank" class="regisnew">INICIO</a>
+        <a href="beneficios.html" target="_blank" class="regisnew">BENEFICIOS</a>
+        <a href="maestros.html" target="_blank" class="regisnew">NUESTROS MAESTROS</a>
+
+    </div>
+  </main>
+  
+  <footer>
+    <div class="footer-images">
+      <a href="https://www.facebook.com/p/CBTIS-167-E-Zapata-100054480429108/?locale=es_LA" target="_blank">
+          <img src="facebook-logo-facebook-icon-transparent-free-png.webp" alt="Google">
+      </a>
+      <a href="https://twitter.com/cbtis167" target="_blank">
+          <img src="twitter_x_new_logo_x_circle_icon_256076.webp" alt="Facebook">
+      </a>
+      <a href="index.html" target="_blank">
+          <img src="354227254_756662546159753_7654829724531716021_n.jpg" alt="Twitter">
+      </a>
+  </div>
+  <p>Avenida chiapas No 280, Colonia Ganadera, Emiliano Zapata, Mexico, 86990</p>
+
+  <p style="font-weight: bold; color: white;">Todos los derechos reservados.</p>
+    
+  </footer>
+     <body id="SEGUNDO2">
+  <button class="toggle-btn" onclick="toggleMenu()">☰</button>
+  
+  <div class="sidebar" id="sidebar">
+    <ul id="menu" style="color: white;">
+      <p id="MENUDE" style="text-align: center;">MENU</p>
+      <li><a href="index.html" target="_blank" class="regisnew">INICIO</a></li>
+      <li><a href="beneficios.html" target="_blank" class="regisnew">BENEFICIOS</a></li>
+      <li><a href="contacto.html" target="_blank" class="regisnew">CONTACTO</a></li>
+      <li><a href="carreras.html" target="_blank" class="regisnew">OFERTA EDUCATIVA</a></li>
+      <li><a href="quejas.html" target="_blank" class="regisnew">BUZON DE QUEJAS</a></li>
+      <li><a href="servicios.html" target="_blank" class="regisnew">SERVICIOS SOCIALES</a></li>
+      <li><a href="maestros.html" target="_blank" class="regisnew">NUESTROS MAESTROS</a></li>
+
+    </ul>
+  </div>
+  </body>
